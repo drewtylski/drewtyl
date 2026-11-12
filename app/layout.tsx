@@ -1,35 +1,29 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import "@fontsource-variable/inter";
-import "@fontsource/jetbrains-mono/400.css";
+import "@fontsource-variable/source-serif-4";
+import "@fontsource-variable/source-sans-3";
+import "@fontsource-variable/figtree";
 import "./globals.css";
-import ModeToggle from "@/components/ModeToggle";
+import Rail from "@/components/Rail";
 import { site } from "@/content";
 
 export const metadata: Metadata = {
-  title: "Drew Teo — Growth, Founder, Creator",
+  title: "Drew Teo",
   description: "Drew Teo is a growth operator and founder in Singapore. Founder of Gorilla Gear, Founding SDR at MagicPort.",
   metadataBase: new URL(`https://${site.domain}`),
 };
 
+// Applies saved/system theme before paint so there's no flash.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}catch(e){}})()`;
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const year = new Date().getFullYear();
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
-        <div className="wrap">
-          <header className="nav">
-            <Link href="/" className="wordmark">
-              <span className="dot" /> {site.name}
-            </Link>
-            <ModeToggle />
-          </header>
-          <main>{children}</main>
-          <footer className="footer">
-            <span>© {year} {site.name} · {site.location}</span>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-          </footer>
-        </div>
+        <Rail />
+        <main className="col">{children}</main>
       </body>
     </html>
   );
