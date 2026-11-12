@@ -23,12 +23,12 @@ export default function CreativePage() {
         </dl>
       </section>
 
-      <section className="sec">
+      {c.media.length > 0 && <section className="sec">
         <Heading badge={`${c.media.length}`}>Selected work</Heading>
         <div className="grid3">
           {c.media.map((m, i) => <Tile key={i} m={m} i={i} />)}
         </div>
-      </section>
+      </section>}
 
       <section className="sec">
         <Heading badge={`${c.brands.length}`}>Brands I&apos;ve worked with</Heading>

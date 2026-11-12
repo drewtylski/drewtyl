@@ -23,14 +23,16 @@ export default function WorkPage() {
         <Text paras={g.story} className="story" />
 
         <dl className="numbers">
-          {g.numbers.map((n) => (
+          {g.numbers.map((n: { value: string; label: string }) => (
             <div key={n.label}><dt>{n.value}</dt><dd>{n.label}</dd></div>
           ))}
         </dl>
 
-        <div className="grid3">
-          {g.images.map((im, i) => <Tile key={i} m={im} i={i} ratio="square" />)}
-        </div>
+        {g.images.length > 0 && (
+          <div className="grid3">
+            {g.images.map((im, i) => <Tile key={i} m={im} i={i} ratio="square" />)}
+          </div>
+        )}
 
         <ul className="points">{g.points.map((p) => <li key={p}>{p}</li>)}</ul>
       </section>

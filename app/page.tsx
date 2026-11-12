@@ -20,7 +20,7 @@ export default function AboutPage() {
       <section className="sec">
         <Heading badge={`${journal.length}`}>Journal</Heading>
         <ul className="entries">
-          {journal.map((j) => (
+          {journal.map((j: { slug: string; title: string; line: string; date: string }) => (
             <li key={j.slug}>
               <Link href={`/journal/${j.slug}/`} className="entry-link">
                 <span className="e-title">{j.title}</span>
