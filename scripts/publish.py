@@ -50,8 +50,9 @@ def main():
         shutil.copyfile(f, dest)
         return {"src": f"/photos/{dest.name}", "label": m.get("label", ""), "video": bool(m.get("video")), "id": aid}
 
-    out = {k: src.get(k) for k in ("about", "journal", "work", "creative")}
+    out = {k: src.get(k) for k in ("about", "journal", "work", "creative", "sections")}
     out["about"]["portrait"] = fix(out["about"].get("portrait"))
+    out["about"]["hero"] = fix(out["about"].get("hero"))
     g = out["work"]["gorilla"]
     g["images"] = [x for x in map(fix, g.get("images", [])) if x]
     c = out["creative"]

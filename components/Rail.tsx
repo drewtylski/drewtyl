@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { site } from "@/content";
 
 const I = {
@@ -14,9 +13,19 @@ const I = {
 const Svg = ({ d }: { d: React.ReactNode }) => <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden>{d}</svg>;
 
 export default function Rail() {
-  const p = usePathname() || "/";
-  const on = (k: string) =>
-    (k === "home" && (p === "/" || p.startsWith("/journal"))) || (k !== "home" && p.startsWith("/" + k)) ? "on" : "";
+  const [active, setActive] = useState("top");
+
+  // Highlight the section currently on screen.
+  useEffect(() => {
+    const ids = ["top", "about", "work", "creative"];
+    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 
   const toggleTheme = () => {
     const r = document.documentElement;
@@ -24,12 +33,13 @@ export default function Rail() {
     r.dataset.theme = next;
     try { localStorage.setItem("theme", next); } catch {}
   };
+  const on = (k: string) => (active === k || (k === "about" && active === "top") ? "on" : "");
 
   return (
     <nav className="rail" aria-label="Main">
-      <Link href="/" className={on("home")} aria-label="About" title="About"><Svg d={I.home} /></Link>
-      <Link href="/work/" className={on("work")} aria-label="Work" title="Work"><Svg d={I.work} /></Link>
-      <Link href="/creative/" className={on("creative")} aria-label="Creative" title="Creative"><Svg d={I.creative} /></Link>
+      <a href="#top" className={on("about")} aria-label="About" title="About"><Svg d={I.home} /></a>
+      <a href="#work" className={on("work")} aria-label="Work" title="Work"><Svg d={I.work} /></a>
+      <a href="#creative" className={on("creative")} aria-label="Creative" title="Creative"><Svg d={I.creative} /></a>
       <a href={site.cvUrl} target="_blank" rel="noreferrer" aria-label="CV" title="CV"><Svg d={I.cv} /></a>
       <button type="button" onClick={toggleTheme} className="rail-theme" aria-label="Toggle dark mode" title="Theme"><Svg d={I.theme} /></button>
     </nav>

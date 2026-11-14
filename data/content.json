@@ -1,16 +1,20 @@
 {
  "about": {
-  "portrait": null,
-  "bio": "I'm Drew. I build brands and the growth engines behind them. I founded [Gorilla Gear](https://gorillagear.club), a fitness nutrition brand built for Asia, and I'm the Founding SDR at MagicPort.\n\nI also train people, model and make content. I'm based in Singapore and open to growth roles in SF, LA or NY. [More about my work.](/work/)"
+  "portrait": {
+   "id": "3e488392a5f86aa47582977fa8a74122",
+   "src": "/media/drew-portrait-studio.jpg",
+   "video": false,
+   "label": ""
+  },
+  "bio": "I'm Drew. I build brands and the growth engines behind them. I founded [Gorilla Gear](https://gorillagear.club), a fitness nutrition brand built for Asia, and I'm the Founding SDR at MagicPort.\n\nI also train people, model and make content. I'm based in Singapore and open to growth roles in SF, LA or NY. [See my work.](#work)",
+  "hero": {
+   "id": "3604529486d59aef07b10ac307a60a03",
+   "src": "/media/4k-0510-1.mp4",
+   "video": true,
+   "label": ""
+  },
+  "tagline": "Growth operator · Founder · Creator"
  },
- "journal": [
-  {
-   "title": "Starting here",
-   "date": "13 Nov 2026",
-   "line": "Why I made this site",
-   "body": "This is where I'll write about building brands, selling, training and whatever else I'm figuring out.\n\nReplace this post with your first real entry."
-  }
- ],
  "work": {
   "intro": "I like being the first person through the door: building the brand, the funnel or the sales motion before there's a playbook for it.",
   "gorilla": {
@@ -83,5 +87,14 @@
     "link": ""
    }
   ]
+ },
+ "sections": {
+  "journal": true,
+  "numbers": true,
+  "gorillaImages": true,
+  "magicport": true,
+  "following": true,
+  "media": true,
+  "brands": true
  }
 }

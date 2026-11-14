@@ -40,26 +40,28 @@ function paras(s: string = ""): Para[] {
 }
 const lines = (s: string = "") => s.split("\n").map((l) => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
 const media = (m: RawMedia): Media | null => (m && (m.src || m.url) ? { src: (m.src || m.url)!, label: m.label || "", video: !!m.video } : null);
-const slugify = (s: string, i: number) =>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _slugify = (s: string, i: number) =>
   (s || `post-${i + 1}`).toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || `post-${i + 1}`;
 
 // ── ABOUT ──
 export const about = {
   portrait: media(C.about?.portrait)?.src || "",
+  hero: media(C.about?.hero),
+  tagline: (C.about?.tagline || "") as string,
   bio: paras(C.about?.bio),
 };
 
-// ── JOURNAL ──
-export const journal = (C.journal || [])
-  .filter((j: any) => j.title)
-  .map((j: any, i: number) => ({
-    slug: slugify(j.title, i),
-    title: j.title as string,
-    line: (j.line || "") as string,
-    date: (j.date || "") as string,
-    body: paras(j.body).map((p) => p.text.replace(/\{([^}]+)\}/g, "$1")),
-    paras: paras(j.body),
-  }));
+// Show/hide switches from the editor (missing = shown)
+const S = C.sections || {};
+export const show = {
+  numbers: S.numbers !== false,
+  gorillaImages: S.gorillaImages !== false,
+  magicport: S.magicport !== false,
+  following: S.following !== false,
+  media: S.media !== false,
+  brands: S.brands !== false,
+};
 
 // ── WORK ──
 const g = C.work?.gorilla || {};

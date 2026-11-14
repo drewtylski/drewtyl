@@ -1,11 +1,11 @@
 /* ── Theme ─────────────────────────────────────────────── */
 :root {
   --bg: #f7f2ed;
-  --ink: #3f3a35;                       /* headings */
-  --ink-2: rgba(63, 58, 53, 0.75);      /* list titles */
-  --body: rgba(139, 129, 122, 0.95);    /* intro text */
-  --soft: rgba(126, 116, 106, 0.62);    /* secondary lines */
-  --faint: rgba(150, 140, 128, 0.45);   /* inactive tabs, meta */
+  --ink: #2a2622;                       /* headings */
+  --ink-2: rgba(42, 38, 34, 0.88);      /* list titles */
+  --body: rgba(78, 70, 62, 0.92);       /* intro text */
+  --soft: rgba(95, 85, 75, 0.78);       /* secondary lines */
+  --faint: rgba(120, 108, 96, 0.6);     /* inactive tabs, meta */
   --line: rgba(120, 105, 90, 0.18);
   --chip: rgba(120, 105, 90, 0.08);
   --rail-on: #ffffff;
@@ -32,7 +32,8 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { background: var(--bg); -webkit-font-smoothing: antialiased; }
+html { background: var(--bg); -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+body { overflow-x: hidden; }
 body {
   background: var(--bg);
   color: var(--ink);
@@ -47,8 +48,11 @@ img { display: block; max-width: 100%; }
 
 /* ── Left rail ─────────────────────────────────────────── */
 .rail {
-  position: fixed; left: 40px; top: 96px; z-index: 10;
-  display: flex; flex-direction: column; gap: 0;
+  position: fixed; left: 32px; top: 50%; transform: translateY(-50%); z-index: 20;
+  display: flex; flex-direction: column; gap: 0; padding: 6px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent); border-radius: 18px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 2px rgba(40,30,20,.06), 0 8px 24px rgba(40,30,20,.06);
 }
 .rail a, .rail button {
   width: 44px; height: 44px; margin-bottom: 8px;
@@ -62,10 +66,10 @@ img { display: block; max-width: 100%; }
   background: var(--rail-on); color: var(--accent);
   box-shadow: 0 1px 2px rgba(60, 45, 30, .06), 0 2px 10px rgba(60, 45, 30, .05);
 }
-.rail .rail-theme { margin-top: 6px; }
+.rail .rail-theme { margin-top: 6px; margin-bottom: 0; }
 
 /* ── Column ────────────────────────────────────────────── */
-.col { max-width: 576px; margin: 0 auto; padding: 96px 24px 0; }
+.col { max-width: 640px; margin: 0 auto; padding: 96px 24px 0; }
 
 h1 {
   font-family: var(--serif); font-weight: 600; font-size: 28.8px;
@@ -84,10 +88,42 @@ h1 {
 }
 .intro a:hover { color: var(--ink); text-decoration-color: var(--soft); }
 
+/* ── Bold: film hero ───────────────────────────────────── */
+.bleed { width: 100vw; position: relative; left: 50%; margin-left: -50vw; }
+.film { height: 92vh; min-height: 560px; margin-top: -96px; overflow: hidden; background: #111; color: #fff; }
+.film video, .film img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.film-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,.6) 100%); }
+.film-inner { position: relative; height: 100%; max-width: 1080px; margin: 0 auto; padding: 36px 32px 56px 120px; display: flex; flex-direction: column; justify-content: space-between; }
+.film-title { max-width: 900px; }
+.film-tag { font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; opacity: .85; margin-bottom: 10px; }
+.display { font-family: var(--serif); font-weight: 600; font-size: clamp(56px, 11vw, 148px); line-height: .92; letter-spacing: -0.035em; margin: 0; color: #fff; }
+.display.dark { color: var(--ink); margin: 40px 0 24px; }
+.tabs.light a { color: rgba(255,255,255,.7); }
+.tabs.light a:hover { color: #fff; }
+
+/* ── About ─────────────────────────────────────────────── */
+.about { display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: start; padding-top: 80px; }
+.intro.big p { font-size: 22px; line-height: 1.5; color: var(--ink-2); }
+.about .portrait { margin: 6px 0 0; border-radius: 14px; overflow: hidden; aspect-ratio: 4 / 5; box-shadow: 0 10px 30px rgba(40,30,20,.12); }
+.about .portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Chapters (Work / Creative) ────────────────────────── */
+.chapter { margin-top: 140px; scroll-margin-top: 40px; }
+.chapter-title {
+  font-family: var(--serif); font-weight: 600; font-size: clamp(48px, 8vw, 84px); line-height: 1;
+  letter-spacing: -0.03em; color: var(--ink); margin-bottom: 28px;
+  padding-bottom: 18px; border-bottom: 1px solid var(--line);
+}
+.job { margin-top: 56px; }
+.wide { width: min(1000px, calc(100vw - 48px)); position: relative; left: 50%; transform: translateX(-50%); margin-top: 32px; margin-bottom: 8px; }
+.numbers.three { grid-template-columns: repeat(3, 1fr); }
+.numbers dt { font-size: 30px !important; white-space: nowrap; }
+.numbers { gap: 24px !important; }
+
 /* ── Sections ──────────────────────────────────────────── */
 .sec { margin-top: 72px; }
 
-.tabs { display: flex; gap: 18px; margin-bottom: 56px; }
+.tabs { display: flex; gap: 22px; }
 .tabs a {
   font-family: var(--sans); font-size: 20px; font-weight: 500; letter-spacing: -0.03em;
   color: var(--faint); padding-bottom: 2px;
@@ -168,7 +204,7 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
 
 /* ── Work ──────────────────────────────────────────────── */
 .job-head { margin-bottom: 14px; }
-.job-title { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+.job-title { font-family: var(--serif); font-size: 34px; font-weight: 600; color: var(--ink); line-height: 1.2; }
 .job-title a { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; text-decoration-color: var(--line); }
 .job-meta { display: block; font-family: var(--text); font-size: 15.5px; font-weight: 600; color: var(--faint); margin-top: 3px; }
 .story p { font-family: var(--serif); font-size: 17.5px; font-weight: 500; line-height: 1.55; color: var(--body); margin-bottom: 12px; }
@@ -215,7 +251,14 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
   .rail { position: static; flex-direction: row; justify-content: center; padding-top: 20px; gap: 6px; }
   .rail a, .rail button { margin: 0; }
   .rail .rail-theme { margin: 0; }
-  .col { padding-top: 40px; }
+  .col { padding-top: 0; }
+  .film { margin-top: 0; height: 78vh; }
+  .film-inner { padding: 24px 22px 36px; }
+  .about { grid-template-columns: 1fr; padding-top: 48px; }
+  .about .portrait { width: 200px; order: -1; }
+  .intro.big p { font-size: 19px; }
+  .chapter { margin-top: 96px; }
+  .rail { top: auto; bottom: 16px; left: 50%; transform: translateX(-50%); flex-direction: row; position: fixed; padding: 4px; }
   .grid3 { gap: 10px; }
   .hero { grid-template-columns: 1fr; }
   .portrait { width: 140px; order: -1; }

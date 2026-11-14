@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { Media, Para } from "@/content";
 import { site } from "@/content";
 
@@ -24,19 +22,16 @@ export function Text({ paras, className = "intro" }: { paras: Para[]; className?
   );
 }
 
-const TABS = [
-  { href: "/", label: "About", match: (p: string) => p === "/" || p.startsWith("/journal") },
-  { href: "/work/", label: "Work", match: (p: string) => p.startsWith("/work") },
-  { href: "/creative/", label: "Creative", match: (p: string) => p.startsWith("/creative") },
+const LINKS = [
+  { href: "#about", label: "About" },
+  { href: "#work", label: "Work" },
+  { href: "#creative", label: "Creative" },
 ];
 
-export function Tabs() {
-  const path = usePathname() || "/";
+export function Nav({ light = false }: { light?: boolean }) {
   return (
-    <nav className="tabs" aria-label="Sections">
-      {TABS.map((t) => (
-        <Link key={t.href} href={t.href} className={t.match(path) ? "on" : ""}>{t.label}</Link>
-      ))}
+    <nav className={`tabs ${light ? "light" : ""}`} aria-label="Sections">
+      {LINKS.map((t) => <a key={t.href} href={t.href}>{t.label}</a>)}
     </nav>
   );
 }
