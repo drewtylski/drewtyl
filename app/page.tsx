@@ -1,5 +1,6 @@
 import { about, work, creative, show, site } from "@/content";
 import { Text, Nav, Heading, Tile, Footer } from "@/components/Blocks";
+import Film from "@/components/Film";
 
 export default function Home() {
   const h = about.hero;
@@ -11,21 +12,7 @@ export default function Home() {
     <>
       {/* ── Film ── */}
       {h ? (
-        <section className="film bleed" id="top">
-          {h.video ? (
-            <video src={h.src} poster={h.src.replace(/\.mp4$/, ".jpg")} autoPlay muted loop playsInline preload="auto" />
-          ) : (
-            <img src={h.src} alt="" />
-          )}
-          <div className="film-shade" />
-          <div className="film-inner">
-            <Nav light />
-            <div className="film-title">
-              {about.tagline && <p className="film-tag">{about.tagline}</p>}
-              <h1 className="display">{site.name}</h1>
-            </div>
-          </div>
-        </section>
+        <Film src={h.src} video={!!h.video} name={site.name} tagline={about.tagline} />
       ) : (
         <div id="top">
           <Nav />
