@@ -49,7 +49,7 @@ export function Tile({ m, i, ratio = "portrait" }: { m: Media; i: number; ratio?
   return (
     <figure className={`tile ${ratio}`}>
       {m.src ? (
-        m.video ? <video src={m.src} autoPlay muted loop playsInline /> : <img src={m.src} alt={m.label || ""} />
+        m.video ? <video src={m.src} poster={m.src.replace(/\.mp4$/, ".jpg")} autoPlay muted loop playsInline preload="metadata" /> : <img src={m.src} alt={m.label || ""} />
       ) : (
         <div className={`tile-empty t${i % 3}`} />
       )}

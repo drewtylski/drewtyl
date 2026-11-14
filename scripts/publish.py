@@ -2,7 +2,10 @@
 """Apply content exported from the drewtyl.com Editor to the site.
 
 Usage:
-  python3 scripts/publish.py <editor.json> [<asset_id>=<downloaded_file> ...]
+  python3 scripts/publish.py <editor.json> [--library <library.json>] [<asset_id>=<downloaded_file> ...]
+
+Library items carry a `site` path (e.g. /media/x.mp4) for files Claude already
+compressed into public/media; those are used directly.
 
 - Copies each uploaded asset into public/photos/<asset_id>.<ext>
 - Rewrites media entries to point at those local files
@@ -18,17 +21,25 @@ EXT = {"image/jpeg": ".jpg", "image/png": ".png", "image/webp": ".webp", "image/
 
 
 def main():
-    src = json.loads(Path(sys.argv[1]).read_text())
-    files = dict(a.split("=", 1) for a in sys.argv[2:])
+    args = sys.argv[1:]
+    src = json.loads(Path(args.pop(0)).read_text())
+    sitemap = {}
+    if args and args[0] == "--library":
+        args.pop(0)
+        lib = json.loads(Path(args.pop(0)).read_text())
+        sitemap = {i["id"]: i["site"] for i in lib.get("items", []) if i.get("site")}
+    files = dict(a.split("=", 1) for a in args)
     PHOTOS.mkdir(parents=True, exist_ok=True)
     missing = []
 
     def fix(m):
         if not m:
             return None
-        if m.get("src", "").startswith("/photos/"):
+        if m.get("src", "").startswith(("/photos/", "/media/")):
             return m
         aid = m.get("id")
+        if aid in sitemap:
+            return {"src": sitemap[aid], "label": m.get("label", ""), "video": bool(m.get("video")), "id": aid}
         if not aid or aid not in files:
             missing.append(aid or m.get("url"))
             return None
