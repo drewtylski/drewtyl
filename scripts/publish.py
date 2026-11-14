@@ -56,6 +56,9 @@ def main():
     g["images"] = [x for x in map(fix, g.get("images", [])) if x]
     c = out["creative"]
     c["media"] = [x for x in map(fix, c.get("media", [])) if x]
+    for b in c.get("brands", []):
+        if b.get("image"):
+            b["image"] = fix(b["image"])
 
     (ROOT / "data" / "content.json").write_text(json.dumps(out, ensure_ascii=False, indent=1))
     print("wrote data/content.json")

@@ -18,6 +18,7 @@ export const site = {
 
 export type Para = { text: string; links?: Record<string, string> };
 export type Media = { src: string; label?: string; video?: boolean };
+export type Brand = { title: string; line: string; meta: string; link: string; domain: string; image: string; cardTitle: string };
 
 type RawMedia = { src?: string; url?: string; label?: string; video?: boolean } | null;
 const C = raw as any;
@@ -93,6 +94,16 @@ export const creative = {
     { platform: "TikTok", handle: "@drewtyl", href: site.tiktok, count: f.tiktok || "" },
     { platform: "Combined", handle: "IG + TikTok", href: "", count: f.combined || "" },
   ],
-  brands: (C.creative?.brands || []).filter((b: any) => b.title) as { title: string; line: string; meta: string }[],
+  brands: (C.creative?.brands || [])
+    .filter((b: any) => b.title)
+    .map((b: any): Brand => ({
+      title: b.title as string,
+      line: (b.line || "") as string,
+      meta: (b.meta || "") as string,
+      link: (b.link || "") as string,
+      domain: b.link ? String(b.link).replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "") : "",
+      image: media(b.image)?.src || b.preview?.image || "",
+      cardTitle: (b.preview?.title || "") as string,
+    })) as Brand[],
   media: (C.creative?.media || []).map(media).filter(Boolean) as Media[],
 };

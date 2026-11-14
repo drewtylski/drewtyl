@@ -36,7 +36,16 @@ export default function CreativePage() {
           {c.brands.map((b) => (
             <li key={b.title}>
               <span className="e-title">{b.title}</span>
-              <span className="e-line">{b.line} <span className="e-meta">· {b.meta}</span></span>
+              <span className="e-line">{b.line}{b.meta && <span className="e-meta"> · {b.meta}</span>}</span>
+              {b.link && (
+                <a className="card-link" href={b.link} target="_blank" rel="noreferrer">
+                  {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
+                  <span className="card-text">
+                    <span className="card-title">{b.cardTitle || b.line || b.title}</span>
+                    <span className="card-domain">{b.domain} ↗</span>
+                  </span>
+                </a>
+              )}
             </li>
           ))}
         </ul>
