@@ -12,7 +12,7 @@
   --accent: #4f6b1f;                    /* olive green */
   --rail-off: rgba(178, 165, 146, 0.85);
 
-  --serif: "Source Serif 4 Variable", "Iowan Old Style", Georgia, serif;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
   --text: "Source Sans 3 Variable", ui-sans-serif, system-ui, sans-serif;
 }
@@ -149,7 +149,7 @@ h1 {
 .contents a { display: grid; grid-template-columns: 40px auto 1fr; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); transition: padding-left .25s ease; }
 .contents a:hover { padding-left: 6px; }
 .contents i { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--faint); }
-.contents span { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; }
+.contents a span { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; }
 .contents em { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--soft); justify-self: end; }
 .chapter-no { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--soft); margin-bottom: 4px; }
 .chapter .chapter-title { border-bottom: 0; padding-bottom: 0; margin-bottom: 30px; }
@@ -359,4 +359,32 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
   .intro.big p { font-size: 15px !important; }
   .intro p, .story p { font-size: 14px !important; }
   .lead { font-size: 15px !important; }
+}
+
+/* ── Headings: Instrument Serif (single weight, so no faux bold; a touch larger) ── */
+h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt span, .numbers dt, .card-title, .h, .tabs a {
+  font-weight: 400 !important;
+}
+.display { font-size: clamp(56px, 7.6vw, 112px) !important; letter-spacing: -0.02em !important; line-height: .92 !important; }
+.chapter-title { font-size: clamp(60px, 9.5vw, 104px) !important; letter-spacing: -0.02em !important; }
+.job-title { font-size: 40px !important; letter-spacing: -0.01em; }
+.contents a span { font-size: 32px !important; }
+.pt span { font-size: 28px !important; }
+.contents i, .contents em, .chapter-no, .running-head a, .job .job-meta { font-size: 19px !important; }
+.job .story p:first-child::first-letter { font-weight: 400; font-size: 4.2em; }
+
+/* ── Mobile polish ── */
+.pt span { white-space: nowrap; }
+@media (max-width: 860px) {
+  body { padding-bottom: 96px; }               /* room for the bottom nav bar */
+  .running-head { padding-top: 28px; margin-bottom: 40px; }
+  .page-turn { grid-template-columns: 1fr 1fr; margin-top: 80px; }
+  .pt span { font-size: 22px !important; }
+  .pt small { font-size: 10.5px; letter-spacing: .12em; }
+  .display { font-size: clamp(52px, 15vw, 72px) !important; }
+  .chapter-title { font-size: clamp(56px, 17vw, 76px) !important; }
+  .job-title { font-size: 34px !important; }
+  .contents a span { font-size: 28px !important; }
+  .foot { margin-top: 72px; line-height: 1.8; }
+  .about .portrait { width: 62%; max-width: 260px; }
 }
