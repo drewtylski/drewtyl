@@ -388,3 +388,16 @@ h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt 
   .foot { margin-top: 72px; line-height: 1.8; }
   .about .portrait { width: 62%; max-width: 260px; }
 }
+
+/* ── Mobile: film at its real 16:9 shape; bottom bar sized to its icons ── */
+@media (max-width: 860px) {
+  .film { height: auto !important; min-height: 0 !important; aspect-ratio: 16 / 9; }
+  .film-inner { padding: 14px 16px !important; }
+  .display { font-size: clamp(36px, 11vw, 52px) !important; }
+  .film-tag { font-size: 10px; }
+  .rail { width: max-content; }
+}
+
+/* ── Featured campaign link cards (always shown in Creative) ── */
+.featured-links { display: flex; flex-direction: column; gap: 10px; margin: 28px 0 8px; }
+.featured-links .card-link { margin: 0; }

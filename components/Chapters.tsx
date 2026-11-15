@@ -54,6 +54,20 @@ export function CreativeChapter() {
         <h2 className="chapter-title">Creative</h2>
         <Text paras={c.intro} className="story" />
 
+        {c.brands.some((b) => b.link) && (
+          <div className="featured-links">
+            {c.brands.filter((b) => b.link).map((b) => (
+              <a key={b.title} className="card-link" href={b.link} target="_blank" rel="noreferrer">
+                {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
+                <span className="card-text">
+                  <span className="card-title">{b.title}: {b.cardTitle || b.line}</span>
+                  <span className="card-domain">{b.domain} ↗</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        )}
+
         {show.media && <Plates items={c.media} />}
 
         {show.following && (
