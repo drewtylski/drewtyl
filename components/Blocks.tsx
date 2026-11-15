@@ -68,8 +68,7 @@ export function Plates({ items }: { items: Media[] }) {
 export function Footer() {
   return (
     <footer className="foot">
-      Handcrafted by <b>Drew</b> in {site.location}
-      <span className="sep">·</span><a href={`mailto:${site.email}`}>Contact</a>
+      <a href={`mailto:${site.email}`}>Contact</a>
       <span className="sep">·</span><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
       <span className="sep">·</span><a href={site.instagram} target="_blank" rel="noreferrer">Instagram</a>
     </footer>
