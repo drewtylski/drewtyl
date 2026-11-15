@@ -401,3 +401,7 @@ h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt 
 /* ── Featured campaign link cards (always shown in Creative) ── */
 .featured-links { display: flex; flex-direction: column; gap: 10px; margin: 28px 0 8px; }
 .featured-links .card-link { margin: 0; }
+
+.card-lead { font-family: var(--grotesk); font-size: 13.5px; line-height: 1.6; color: var(--ink-2); margin: 0 0 8px; }
+.featured-links { gap: 22px; }
+@media (max-width: 860px) { .card-lead { font-size: 14px; } }

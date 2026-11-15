@@ -57,13 +57,16 @@ export function CreativeChapter() {
         {c.brands.some((b) => b.link) && (
           <div className="featured-links">
             {c.brands.filter((b) => b.link).map((b) => (
-              <a key={b.title} className="card-link" href={b.link} target="_blank" rel="noreferrer">
+              <div key={b.title} className="featured-item">
+              <p className="card-lead">Check out the {b.title.replace(/ ASEAN$/, "")} campaign here:</p>
+              <a className="card-link" href={b.link} target="_blank" rel="noreferrer">
                 {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
                 <span className="card-text">
                   <span className="card-title">{b.title}: {b.cardTitle || b.line}</span>
                   <span className="card-domain">{b.domain} ↗</span>
                 </span>
               </a>
+              </div>
             ))}
           </div>
         )}
