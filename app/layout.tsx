@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@fontsource-variable/source-serif-4";
 import "@fontsource-variable/source-sans-3";
 import "@fontsource-variable/figtree";
-import "@fontsource-variable/inter";
+import "@fontsource-variable/schibsted-grotesk";
 import "./globals.css";
 import Rail from "@/components/Rail";
 import { site } from "@/content";

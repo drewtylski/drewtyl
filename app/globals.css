@@ -339,9 +339,9 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
   h1 { font-size: 26px; }
 }
 
-/* ── Body type: Neue Haas Grotesk (Adobe Fonts) with Inter fallback, 30% smaller ── */
+/* ── Body type: Schibsted Grotesk, 30% smaller ── */
 :root {
-  --grotesk: "neue-haas-grotesk-text", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk Text", "Inter Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --grotesk: "Schibsted Grotesk Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .intro p, .intro.big p, .story p, .lead, .points li {
   font-family: var(--grotesk) !important;
