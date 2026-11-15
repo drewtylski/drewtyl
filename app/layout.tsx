@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@fontsource-variable/source-serif-4";
 import "@fontsource-variable/source-sans-3";
 import "@fontsource-variable/figtree";
+import "@fontsource-variable/inter";
 import "./globals.css";
 import Rail from "@/components/Rail";
 import { site } from "@/content";
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {site.adobeFontsKit && <link rel="stylesheet" href={`https://use.typekit.net/${site.adobeFontsKit}.css`} />}
       </head>
       <body>
         <Rail />

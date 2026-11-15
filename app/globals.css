@@ -338,3 +338,25 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
   .intro p { font-size: 17px; }
   h1 { font-size: 26px; }
 }
+
+/* ── Body type: Neue Haas Grotesk (Adobe Fonts) with Inter fallback, 30% smaller ── */
+:root {
+  --grotesk: "neue-haas-grotesk-text", "Neue Haas Grotesk Text Pro", "Neue Haas Grotesk Text", "Inter Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.intro p, .intro.big p, .story p, .lead, .points li {
+  font-family: var(--grotesk) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.006em;
+}
+.intro.big p { font-size: clamp(15.5px, 1.33vw, 19px) !important; line-height: 1.6 !important; margin-bottom: 16px; }
+.intro p { font-size: 13.5px; line-height: 1.65; }
+.story p { font-size: 13.5px !important; line-height: 1.75 !important; margin-bottom: 12px; }
+.lead { font-size: 15px !important; line-height: 1.65 !important; }
+.points li { font-size: 12.5px !important; line-height: 1.6 !important; }
+.job .story p:first-child::first-letter { font-family: var(--serif); font-size: 3.6em; padding-top: 4px; }
+@media (max-width: 860px) {
+  .intro.big p { font-size: 15px !important; }
+  .intro p, .story p { font-size: 14px !important; }
+  .lead { font-size: 15px !important; }
+}

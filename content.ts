@@ -14,6 +14,8 @@ export const site = {
   instagram: "https://instagram.com/drewtyl",
   tiktok: "https://tiktok.com/@drewtyl",
   cvUrl: "/drew-teo-cv.pdf",
+  // Adobe Fonts web project ID for Neue Haas Grotesk (e.g. "abc1def"). Empty = Inter fallback.
+  adobeFontsKit: "",
 };
 
 export type Para = { text: string; links?: Record<string, string> };
