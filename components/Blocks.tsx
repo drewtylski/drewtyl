@@ -40,7 +40,7 @@ export function Heading({ children, badge }: { children: React.ReactNode; badge?
   return <h2 className="h">{children}{badge && <span className="badge">{badge}</span>}</h2>;
 }
 
-export function Tile({ m, i, ratio = "portrait" }: { m: Media; i: number; ratio?: "portrait" | "square" }) {
+export function Tile({ m, i, ratio = "portrait" }: { m: Media; i: number; ratio?: "portrait" | "square" | "feature" }) {
   return (
     <figure className={`tile ${ratio}`}>
       {m.src ? (
@@ -50,6 +50,18 @@ export function Tile({ m, i, ratio = "portrait" }: { m: Media; i: number; ratio?
       )}
       {m.label && <figcaption>{m.label}</figcaption>}
     </figure>
+  );
+}
+
+/** Book-style plates: first item large, the rest in a grid. */
+export function Plates({ items }: { items: Media[] }) {
+  if (!items.length) return null;
+  const [first, ...rest] = items;
+  return (
+    <div className="plates wide">
+      <Tile m={first} i={0} ratio="feature" />
+      {rest.length > 0 && <div className="grid3">{rest.map((m, i) => <Tile key={i} m={m} i={i + 1} />)}</div>}
+    </div>
   );
 }
 

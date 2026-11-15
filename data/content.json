@@ -6,17 +6,18 @@
    "video": false,
    "label": ""
   },
-  "bio": "I'm Drew. I build brands and the growth engines behind them. I founded [Gorilla Gear](https://gorillagear.club), a fitness nutrition brand built for Asia, and I'm the Founding SDR at MagicPort.\n\nI also train people, model and make content. I'm based in Singapore and open to growth roles in SF, LA or NY. [See my work.](#work)",
+  "bio": "My path hasn’t exactly been a straight line. I bootstrapped a supplement brand past US$130K in revenue in its first year, built the outbound sales motion at a shipping startup from scratch, and spent plenty of hours in front of the camera and on the gym floor coaching people.\n\nOn paper that probably looks scattered. To me it’s been different rooms, same question: what makes someone care?\n\nI’m still chasing that answer. These days I’m doing it in go-to-market and operations, and honestly it’s the most fun I’ve had.",
   "hero": {
    "id": "3604529486d59aef07b10ac307a60a03",
    "src": "/media/4k-0510-1.mp4",
    "video": true,
    "label": ""
   },
-  "tagline": "Growth operator · Founder · Creator"
+  "tagline": "",
+  "media": []
  },
  "work": {
-  "intro": "I like being the first person through the door: building the brand, the funnel or the sales motion before there's a playbook for it.",
+  "intro": "I like being the first person through the door: building the brand, the funnel or the sales motion before there's a playbook for it. I live for creativity.",
   "gorilla": {
    "role": "Founder & Brand Strategist",
    "period": "Jun 2024 – Now",
@@ -39,18 +40,26 @@
      "label": "ROAS"
     }
    ],
-   "images": [],
+   "images": [
+    {
+     "src": "/media/scape-poster.jpg",
+     "label": "",
+     "video": false,
+     "id": "162fe6fa4e01a9f337bc356f60773ea1"
+    }
+   ],
    "points": "Grew revenue 10x through paid acquisition and B2B partnerships, reaching a consistent US$20K+ MRR\nRan Meta Ads at more than 4x ROAS, shipping about 30 creatives a month at peak with matching landing pages\nBuilt Klaviyo retention flows behind a 30% repeat rate across 1,000+ customers\nClosed 5+ B2B accounts across lifestyle and fitness channels through outbound\nRan gym and lifestyle activations; the largest drew 200+ people over two days"
   },
   "magicport": {
    "role": "Founding SDR",
    "period": "May 2026 – Now",
    "story": "MagicPort is an AI-powered maritime intelligence platform that digitizes port operations. As the first sales hire, I built the outbound motion and the cold prospecting playbook from scratch.\n\nIn my first 6 months I generated US$250K in outbound pipeline across 300+ shipping companies in 80+ countries.",
-   "points": "Work with the founders on go-to-market, refining messaging and qualification to lift meeting conversion\nRun pipeline and sales activity in HubSpot"
+   "points": "Work with the founders on go-to-market, refining messaging and qualification to lift meeting conversion\nRun pipeline and sales activity in HubSpot",
+   "media": []
   }
  },
  "creative": {
-  "intro": "Alongside building brands, I make content and model. I've grown a following of 25K+ across [Instagram](https://instagram.com/drewtyl) and [TikTok](https://tiktok.com/@drewtyl), and worked with brands on campaigns, UGC and micro-influencer work.",
+  "intro": "I've spent a lot of time in front of the camera. As a commercial model I've worked on campaigns like Salomon's [Made for the Wild](https://sg.salomon.com/pages/made-for-the-wild) and Garnier's Box Dye. As a creator, I make UGC and short-form content for brands like L'Oréal and Descente, and for the 25K+ people who follow along on [Instagram](https://instagram.com/drewtyl) and [TikTok](https://tiktok.com/@drewtyl).\n\nBuilding Gorilla Gear changed how I see it. I know what a brand needs from a creator now: content that people actually stop for, that still does its job.",
   "following": {
    "instagram": "",
    "tiktok": "",
@@ -89,12 +98,12 @@
   ]
  },
  "sections": {
-  "journal": true,
-  "numbers": true,
+  "numbers": false,
+  "highlights": false,
   "gorillaImages": true,
   "magicport": true,
-  "following": true,
+  "following": false,
   "media": true,
-  "brands": true
+  "brands": false
  }
 }

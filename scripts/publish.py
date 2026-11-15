@@ -53,6 +53,9 @@ def main():
     out = {k: src.get(k) for k in ("about", "journal", "work", "creative", "sections")}
     out["about"]["portrait"] = fix(out["about"].get("portrait"))
     out["about"]["hero"] = fix(out["about"].get("hero"))
+    out["about"]["media"] = [x for x in map(fix, out["about"].get("media", [])) if x]
+    mp = out["work"].get("magicport", {})
+    mp["media"] = [x for x in map(fix, mp.get("media", [])) if x]
     g = out["work"]["gorilla"]
     g["images"] = [x for x in map(fix, g.get("images", [])) if x]
     c = out["creative"]

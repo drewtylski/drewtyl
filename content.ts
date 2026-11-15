@@ -48,6 +48,7 @@ const _slugify = (s: string, i: number) =>
 export const about = {
   portrait: media(C.about?.portrait)?.src || "",
   hero: media(C.about?.hero),
+  media: (C.about?.media || []).map(media).filter(Boolean) as Media[],
   tagline: (C.about?.tagline || "") as string,
   bio: paras(C.about?.bio),
 };
@@ -55,12 +56,13 @@ export const about = {
 // Show/hide switches from the editor (missing = shown)
 const S = C.sections || {};
 export const show = {
-  numbers: S.numbers !== false,
+  numbers: S.numbers === true,
+  highlights: S.highlights === true,
   gorillaImages: S.gorillaImages !== false,
   magicport: S.magicport !== false,
-  following: S.following !== false,
+  following: S.following === true,
   media: S.media !== false,
-  brands: S.brands !== false,
+  brands: S.brands === true,
 };
 
 // ── WORK ──
@@ -84,6 +86,7 @@ export const work = {
     period: m.period || "",
     story: paras(m.story),
     points: lines(m.points),
+    media: (m.media || []).map(media).filter(Boolean) as Media[],
   },
 };
 

@@ -138,6 +138,33 @@ h1 {
 .numbers dt { font-size: 30px !important; white-space: nowrap; }
 .numbers { gap: 24px !important; }
 
+/* ── Book: contents, chapters, plates ───────────────────── */
+.contents { margin: 120px 0 0; border-top: 1px solid var(--line); }
+.contents-label { display: block; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); margin: 22px 0 10px; }
+.contents a { display: grid; grid-template-columns: 40px auto 1fr; align-items: baseline; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); transition: padding-left .25s ease; }
+.contents a:hover { padding-left: 6px; }
+.contents i { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--faint); }
+.contents span { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); letter-spacing: -0.015em; }
+.contents em { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--soft); justify-self: end; }
+.chapter-no { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--soft); margin-bottom: 4px; }
+.chapter .chapter-title { border-bottom: 0; padding-bottom: 0; margin-bottom: 30px; }
+.lead { font-family: var(--serif); font-style: italic; font-size: 21px !important; line-height: 1.5; color: var(--ink-2) !important; }
+.job { margin-top: 64px; }
+.job .job-meta { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 16.5px; color: var(--soft); margin: 4px 0 18px; }
+.story p { font-size: 19px !important; line-height: 1.65 !important; color: var(--ink-2) !important; }
+.job .story p:first-child::first-letter { font-size: 3.1em; float: left; line-height: .9; padding: 6px 8px 0 0; font-weight: 600; color: var(--ink); }
+.plates { margin: 40px 0 16px; display: flex; flex-direction: column; gap: 14px; }
+.plates .grid3 { gap: 14px; }
+.tile.feature { aspect-ratio: auto; border-radius: 0; overflow: visible; display: flex; justify-content: center; }
+.tile.feature::after { display: none; }
+.tile.feature img, .tile.feature video { width: auto; height: auto; max-width: 100%; max-height: 82vh; border-radius: 14px; object-fit: contain; }
+.tile.feature figcaption { position: static; color: var(--soft); text-shadow: none; text-align: center; margin-top: 10px; }
+.tile.feature:hover img, .tile.feature:hover video { transform: none; }
+.tile.feature { flex-direction: column; align-items: center; }
+.plates .tile figcaption { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; }
+.ornament { text-align: center; font-family: var(--serif); font-size: 26px; color: var(--faint); margin: 110px 0 -40px; letter-spacing: .3em; }
+.ornament.end { margin: 100px 0 -60px; }
+
 /* ── Sections ──────────────────────────────────────────── */
 .sec { margin-top: 72px; }
 
@@ -279,6 +306,9 @@ details[open] .e-more { animation: open .35s cubic-bezier(.2,.8,.2,1); }
   .about .portrait { width: 200px; order: -1; }
   .intro.big p { font-size: 19px; }
   .chapter { margin-top: 96px; }
+  .contents em { display: none; }
+  .contents a { grid-template-columns: 32px 1fr; }
+  .story p { font-size: 17.5px !important; }
   .rail { top: auto; bottom: 16px; left: 50%; transform: translateX(-50%); flex-direction: row; position: fixed; padding: 4px; }
   .grid3 { gap: 10px; }
   .hero { grid-template-columns: 1fr; }

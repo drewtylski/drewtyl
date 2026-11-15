@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Nav } from "@/components/Blocks";
 
 type Props = { src: string; video: boolean; name: string; tagline: string };
 
@@ -66,7 +65,6 @@ export default function Film({ src, video, name, tagline }: Props) {
       )}
       <div className="film-shade" />
       <div className="film-inner">
-        <Nav light />
         <div className={`film-title ${showName ? "in" : ""}`}>
           {tagline && <p className="film-tag">{tagline}</p>}
           <h1 className="display">{name}</h1>
