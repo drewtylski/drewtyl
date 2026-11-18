@@ -20,7 +20,7 @@ export const site = {
 
 export type Para = { text: string; links?: Record<string, string> };
 export type Media = { src: string; label?: string; video?: boolean };
-export type Brand = { title: string; line: string; meta: string; link: string; domain: string; image: string; cardTitle: string };
+export type Brand = { title: string; line: string; meta: string; link: string; domain: string; image: string; cardTitle: string; lead: string; instagram: boolean };
 
 type RawMedia = { src?: string; url?: string; label?: string; video?: boolean } | null;
 const C = raw as any;
@@ -111,6 +111,8 @@ export const creative = {
       domain: b.link ? String(b.link).replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "") : "",
       image: media(b.image)?.src || b.preview?.image || "",
       cardTitle: (b.preview?.title || "") as string,
+      lead: (b.lead || "") as string,
+      instagram: /instagram\.com\/(reel|p|tv)\//.test(b.link || ""),
     })) as Brand[],
   media: (C.creative?.media || []).map(media).filter(Boolean) as Media[],
 };

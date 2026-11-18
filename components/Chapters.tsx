@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { about, work, creative, show, site } from "@/content";
 import { Text, Heading, Plates } from "@/components/Blocks";
+import InstaEmbed from "@/components/InstaEmbed";
 
 export function WorkChapter() {
   const g = work.gorilla;
@@ -58,7 +59,8 @@ export function CreativeChapter() {
           <div className="featured-links">
             {c.brands.filter((b) => b.link).map((b) => (
               <div key={b.title} className="featured-item">
-              <p className="card-lead">Check out the {b.title.replace(/ ASEAN$/, "")} campaign here:</p>
+              <p className="card-lead">{b.lead || `Check out the ${b.title.replace(/ ASEAN$/, "")} campaign here:`}</p>
+              {b.instagram ? <InstaEmbed url={b.link} /> : (
               <a className="card-link" href={b.link} target="_blank" rel="noreferrer">
                 {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
                 <span className="card-text">
@@ -66,6 +68,7 @@ export function CreativeChapter() {
                   <span className="card-domain">{b.domain} ↗</span>
                 </span>
               </a>
+              )}
               </div>
             ))}
           </div>
