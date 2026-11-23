@@ -55,22 +55,31 @@ export function CreativeChapter() {
         <h2 className="chapter-title">Creative</h2>
         <Text paras={c.intro} className="story" />
 
-        {c.brands.some((b) => b.link) && (
+        {c.brands.some((b) => b.links.length) && (
           <div className="featured-links">
-            {c.brands.filter((b) => b.link).map((b) => (
-              <div key={b.title} className="featured-item">
-              <p className="card-lead">{b.lead || `Check out the ${b.title.replace(/ ASEAN$/, "")} campaign here:`}</p>
-              {b.instagram ? <InstaEmbed url={b.link} /> : (
-              <a className="card-link" href={b.link} target="_blank" rel="noreferrer">
-                {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
-                <span className="card-text">
-                  <span className="card-title">{b.title}: {b.cardTitle || b.line}</span>
-                  <span className="card-domain">{b.domain} ↗</span>
-                </span>
-              </a>
-              )}
-              </div>
-            ))}
+            {c.brands.filter((b) => b.links.length).map((b) => {
+              const sites = b.links.filter((l) => !l.instagram);
+              const posts = b.links.filter((l) => l.instagram);
+              return (
+                <div key={b.title} className="featured-item">
+                  <p className="card-lead">{b.lead || `Check out the ${b.title.replace(/ ASEAN$/, "")} campaign here:`}</p>
+                  {sites.map((l) => (
+                    <a key={l.url} className="card-link" href={l.url} target="_blank" rel="noreferrer">
+                      {b.image && <span className="card-img"><img src={b.image} alt="" loading="lazy" /></span>}
+                      <span className="card-text">
+                        <span className="card-title">{b.title}: {b.cardTitle || b.line}</span>
+                        <span className="card-domain">{l.url.replace(/^https?:\/\//, "").split("/")[0].replace(/^www\./, "")} ↗</span>
+                      </span>
+                    </a>
+                  ))}
+                  {posts.length > 0 && (
+                    <div className={`ig-row ${posts.length > 1 ? "two" : ""}`}>
+                      {posts.map((l) => <InstaEmbed key={l.url} url={l.url} />)}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         )}
 

@@ -408,3 +408,10 @@ h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt 
 
 .ig-wrap { max-width: 400px; }
 .ig-wrap .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; border-radius: 12px !important; border: 1px solid var(--line) !important; box-shadow: none !important; }
+
+.featured-item { display: flex; flex-direction: column; gap: 12px; }
+.featured-links { gap: 44px !important; }
+.ig-row { display: grid; grid-template-columns: minmax(0, 400px); gap: 16px; }
+.ig-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(720px, calc(100vw - 48px)); }
+.ig-row .ig-wrap { max-width: none; }
+@media (max-width: 860px) { .ig-row.two { grid-template-columns: 1fr; width: auto; } }

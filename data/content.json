@@ -68,6 +68,16 @@
   "media": [],
   "brands": [
    {
+    "title": "Descente",
+    "line": "Micro-influencer campaign",
+    "meta": "Creator",
+    "link": "https://www.instagram.com/p/DLWayclzWDh/",
+    "lead": "Micro-influencer campaign I did for Descente:",
+    "extra": [
+     "https://www.instagram.com/p/DQgTLonkptb/"
+    ]
+   },
+   {
     "title": "Salomon ASEAN",
     "line": "“Made for the Wild” campaign",
     "meta": "Model",
@@ -75,13 +85,10 @@
     "preview": {
      "image": "https://img.myshopline.com/image/store/1732177844672/SALOMON-S-SYMBOL-22-1-2-.png?w=1278&h=1278",
      "title": "Made for The Wild"
-    }
-   },
-   {
-    "title": "Garnier",
-    "line": "Box Dye campaign",
-    "meta": "Model",
-    "link": ""
+    },
+    "extra": [
+     "https://www.instagram.com/p/DZm4Ib_iLDa/"
+    ]
    },
    {
     "title": "L'Oréal",
@@ -91,11 +98,10 @@
     "lead": "UGC campaign I did for L'Oréal:"
    },
    {
-    "title": "Descente",
-    "line": "Micro-influencer campaign",
-    "meta": "Creator",
-    "link": "https://www.instagram.com/p/DLWayclzWDh/",
-    "lead": "Micro-influencer campaign I did for Descente:"
+    "title": "Garnier",
+    "line": "Box Dye campaign",
+    "meta": "Model",
+    "link": ""
    }
   ]
  },
