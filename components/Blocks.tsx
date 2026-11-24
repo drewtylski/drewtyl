@@ -3,6 +3,13 @@
 import type { Media, Para } from "@/content";
 import { site } from "@/content";
 
+/** *word* → italics. */
+function italics(text: string, key: number) {
+  return text.split(/(\*[^*]+\*)/g).map((t, k) =>
+    /^\*[^*]+\*$/.test(t) ? <em key={`${key}-${k}`}>{t.slice(1, -1)}</em> : t
+  );
+}
+
 /** Paragraphs where {Phrase} becomes a link from `links`. */
 export function Text({ paras, className = "intro" }: { paras: Para[]; className?: string }) {
   return (
@@ -11,7 +18,7 @@ export function Text({ paras, className = "intro" }: { paras: Para[]; className?
         <p key={i}>
           {p.text.split(/(\{[^}]+\})/g).map((part, j) => {
             const m = part.match(/^\{(.+)\}$/);
-            if (!m) return part;
+            if (!m) return italics(part, j);
             const href = p.links?.[m[1]] ?? "#";
             const ext = /^https?:/.test(href);
             return <a key={j} href={href} {...(ext ? { target: "_blank", rel: "noreferrer" } : {})}>{m[1]}</a>;

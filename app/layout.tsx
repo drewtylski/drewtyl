@@ -4,6 +4,7 @@ import "@fontsource/instrument-serif/400-italic.css";
 import "@fontsource-variable/source-sans-3";
 import "@fontsource-variable/figtree";
 import "@fontsource-variable/schibsted-grotesk";
+import "@fontsource-variable/schibsted-grotesk/wght-italic.css";
 import "./globals.css";
 import Rail from "@/components/Rail";
 import { site } from "@/content";

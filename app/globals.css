@@ -415,3 +415,5 @@ h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt 
 .ig-row.two { grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(720px, calc(100vw - 48px)); }
 .ig-row .ig-wrap { max-width: none; }
 @media (max-width: 860px) { .ig-row.two { grid-template-columns: 1fr; width: auto; } }
+
+.intro em, .story em { font-style: italic; }
