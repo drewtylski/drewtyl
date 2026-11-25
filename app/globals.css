@@ -434,8 +434,8 @@ h1, h2, h3, .display, .chapter-title, .job-title, .e-title, .contents span, .pt 
 .ig-card:hover .ig-view { color: var(--ink); }
 @media (max-width: 860px) { .ig-row.two { grid-template-columns: 1fr 1fr; width: auto; gap: 10px; } .ig-foot { font-size: 11.5px; padding: 9px 10px; } .ig-foot > span:nth-child(2) { display: none; } }
 
-/* ── Film: always show the full 16:9 frame so burned-in captions are never cropped ── */
-.film { height: min(56.25vw, 100vh) !important; min-height: 0 !important; background: #000 !important; }
+/* ── Film: full width at its native 16:9 shape: no crop, no bars ── */
+.film { height: auto !important; aspect-ratio: 16 / 9; min-height: 0 !important; background: #000 !important; }
 .film-media { background: #000; }
-.film-media video:not(.is-mini), .film-media img { object-fit: contain !important; }
+.film-media video:not(.is-mini), .film-media img { object-fit: cover !important; }
 @media (max-width: 860px) { .film { height: auto !important; } }
